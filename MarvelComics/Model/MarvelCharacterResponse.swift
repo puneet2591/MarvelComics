@@ -1,6 +1,6 @@
 //
 //  MarvelCharacterResponse.swift
-//  SmartMonitor_iOS
+//  MarvelComics
 //
 //  Created by Puneet Mahajan on 09/10/20.
 //  Copyright © 2020 Puneet. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+// Model for marvel character
 struct MarvelCharactersResponse: BaseProtocol {
     
     var code: Int
@@ -53,8 +53,6 @@ struct Stories: Decodable {
     
     var items: [Items]
 }
-
-
 
 
 struct Items : Decodable {

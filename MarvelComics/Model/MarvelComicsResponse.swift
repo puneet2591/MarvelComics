@@ -1,6 +1,6 @@
 //
 //  MarvelComicsResponse.swift
-//  SmartMonitor_iOS
+//  MarvelComics
 //
 //  Created by Puneet Mahajan on 09/10/20.
 //  Copyright © 2020 Puneet. All rights reserved.
@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Model for marvel comics response
 
 struct MarvelComicsResponse: BaseProtocol {
     
@@ -32,6 +33,8 @@ struct MarvelComicData : Decodable {
     
     func getThumbnailUrl() -> URL? {
         
+        // in order to get image from server just pass portrait_xlarge, portrait_medium
+        // refer this doc: https://developer.marvel.com/documentation/images
         return URL(string: "\(thumbnail.path)/portrait_xlarge.\(thumbnail.ext)")
     }
 }

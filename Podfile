@@ -8,5 +8,6 @@ target 'MarvelComics' do
   # Pods for MarvelComics
   pod 'SDWebImage', '~> 5.0'
   pod 'BasicSetup', :git => 'https://github.com/puneet2591/BasicSetup'
+  pod 'IHProgressHUD'
 
 end

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import IHProgressHUD
+import BasicSetup
 
 // Extension for view controller identifier
 extension UIViewController {
@@ -74,5 +76,32 @@ extension UIApplication {
             return getTopViewController(controller: presented.visibleViewController)
         }
         return controller
+    }
+}
+
+
+extension IHProgressHUD {
+    
+    static func showLoader() {
+        DispatchQueue.main.async {
+            IHProgressHUD.show()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+        }
+    }
+    
+    static func hideLoader() {
+        DispatchQueue.main.async {
+            IHProgressHUD.dismiss()
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
+    }
+}
+
+
+extension UIViewController {
+    
+    func showToast(message: String) {
+        
+        showToast(message: message.localized(), applySystemTheme: false)
     }
 }

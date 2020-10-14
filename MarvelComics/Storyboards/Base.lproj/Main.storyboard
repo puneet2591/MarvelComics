@@ -1,26 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Marvel Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MarvelComics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MarvelHomeViewController" id="BYZ-38-t0r" customClass="MarvelHomeViewController" customModule="MarvelComics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4n7-OX-Ydr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4n7-OX-Ydr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9md-yJ-fYi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4n7-OX-Ydr" secondAttribute="trailing" id="GEz-zh-OYJ"/>
+                            <constraint firstItem="4n7-OX-Ydr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VHG-SW-nnS"/>
+                            <constraint firstAttribute="bottom" secondItem="4n7-OX-Ydr" secondAttribute="bottom" id="XU0-FI-NVe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="4n7-OX-Ydr" id="en8-zM-VAM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141" y="127"/>
+        </scene>
+        <!--Marvel Character List View Controller-->
+        <scene sceneID="rgu-79-gKm">
+            <objects>
+                <viewController storyboardIdentifier="MarvelCharacterListViewController" id="bel-FU-YIz" customClass="MarvelCharacterListViewController" customModule="MarvelComics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nhL-TG-ZPZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Mu-zp-Svm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7Mu-zp-Svm" secondAttribute="bottom" id="Q5O-em-yWH"/>
+                            <constraint firstItem="7Mu-zp-Svm" firstAttribute="leading" secondItem="O6b-3g-oi0" secondAttribute="leading" id="U3P-eY-Vgh"/>
+                            <constraint firstItem="7Mu-zp-Svm" firstAttribute="top" secondItem="O6b-3g-oi0" secondAttribute="top" id="piE-X1-dNE"/>
+                            <constraint firstItem="O6b-3g-oi0" firstAttribute="trailing" secondItem="7Mu-zp-Svm" secondAttribute="trailing" id="vMT-Ry-vEo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O6b-3g-oi0"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="7Mu-zp-Svm" id="C4O-8h-h4B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uF1-ew-oqV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="86"/>
+        </scene>
+        <!--Marvel Character Detail View Controller-->
+        <scene sceneID="aRP-U1-6FW">
+            <objects>
+                <viewController storyboardIdentifier="MarvelCharacterDetailViewController" id="GKj-el-hfA" customClass="MarvelCharacterDetailViewController" customModule="MarvelComics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JJ4-bu-812">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Kr-yR-Jg0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Kr-yR-Jg0" firstAttribute="leading" secondItem="PP7-vX-xCo" secondAttribute="leading" id="aF1-KM-Wa6"/>
+                            <constraint firstAttribute="bottom" secondItem="6Kr-yR-Jg0" secondAttribute="bottom" id="dGB-eF-LMj"/>
+                            <constraint firstItem="PP7-vX-xCo" firstAttribute="trailing" secondItem="6Kr-yR-Jg0" secondAttribute="trailing" id="gcC-BZ-orG"/>
+                            <constraint firstItem="6Kr-yR-Jg0" firstAttribute="top" secondItem="PP7-vX-xCo" secondAttribute="top" id="weC-SD-JjR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PP7-vX-xCo"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="6Kr-yR-Jg0" id="8Cn-fK-b4B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zc1-Ok-J8M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1842" y="116"/>
         </scene>
     </scenes>
 </document>

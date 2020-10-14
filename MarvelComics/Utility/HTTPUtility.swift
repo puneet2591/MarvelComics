@@ -30,7 +30,7 @@ struct HTTPUtility {
         let task = session.dataTask(with: urlRequest) { (data, httpResponse, error) in
             
             guard let data = data, let httpResponse = httpResponse as? HTTPURLResponse else {
-                completionHandler(nil, ErrorResponse(code: 500, message: error?.localizedDescription ?? "Something went wrong. Please try again"))
+                completionHandler(nil, ErrorResponse(response: .CouldNotConnectToServer, message: APIResponse.CouldNotConnectToServer.value))
                 return
             }
             
@@ -45,7 +45,7 @@ struct HTTPUtility {
                 debugPrint("\(error.localizedDescription)")
                 debugPrint(httpResponse.url ?? "")
                 
-                completionHandler(nil, ErrorResponse(code: httpResponse.statusCode, message: error.localizedDescription))
+                completionHandler(nil, ErrorResponse(response: APIResponse(rawValue: httpResponse.statusCode) ?? .NotFound, message: error.localizedDescription))
             }
         }
         task.resume()
